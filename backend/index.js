@@ -1,5 +1,6 @@
 const express = require("express");
-const mongoose=require("mongoose")
+const mongoose=require("mongoose");
+import financialRecordRouter from"./routes/financial-records"
 
 
 const app= express();
@@ -11,3 +12,4 @@ app.use(express.json());
 const MongoURI="mongodb+srv://anshyadavprogramming:3dMZpsJYvAZZINzY@financetracker.g9asisj.mongodb.net/"
 
 mongoose.connect(MongoURI).then(()=>{console.log("connected to mongo db!!!f")}).catch((err)=>console.log("could not connect to mongo db"))
+app.use("/financial-records",financialRecordRouter);
